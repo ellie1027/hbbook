@@ -1,4 +1,4 @@
 # Personal Wiki Page
 
-[Powered by](https://github.com/hasura/gatsby-gitbook-starter)]
+[Powered by gatsby-gitbook-starter](https://github.com/hasura/gatsby-gitbook-starter)
 
