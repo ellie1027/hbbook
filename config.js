@@ -43,7 +43,8 @@ const config = {
     collapsedNav: [
       '/java-fundamentals',
       '/springcore',
-      '/TIL'
+      '/TIL',
+      '/datastructure'
     ],
     links: [{ text: '깃헙', link: 'https://github.com/hanbyul9/' }],
     frontline: false,
@@ -55,7 +56,7 @@ const config = {
     description: 'Documentation built with mdx. Powering hasura.io/learn ',
     ogImage: null,
     docsLocation: '',
-    favicon: '',
+    favicon: '/src/components/images/favicon.png',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
