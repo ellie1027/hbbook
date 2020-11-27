@@ -37,14 +37,14 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/introduction',
       '/TIL'
     ],
     collapsedNav: [
       '/java-fundamentals',
       '/springcore',
       '/TIL',
-      '/datastructure'
+      '/datastructure',
+      '/springsecurity'
     ],
     links: [{ text: '깃헙', link: 'https://github.com/hanbyul9/' }],
     frontline: false,

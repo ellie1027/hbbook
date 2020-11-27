@@ -225,7 +225,6 @@ public interface UserDetailsService {
 리턴받은 Authentication 객체는 SecurityContext에 보관된다.
 
 
-
 # 용어 정리
 
 - **SecurityContextHolder** : 쓰레드 로컬에 SecurityContext를 보관한다.
