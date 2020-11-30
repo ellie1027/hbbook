@@ -6,7 +6,7 @@ const config = {
     trailingSlash: false,
   },
   header: {
-    logo: '',
+    logo: '/src/components/images/favicon.png',
     logoLink: '',
     title: "",
     githubUrl: 'https://github.com/hanbyul9/',
@@ -28,8 +28,8 @@ const config = {
 		//   </li>`,
     links: [{ text: '', link: '' }],
     search: {
-      enabled: false,
-      indexName: '',
+      enabled: true,
+      indexName: "learn-react-apollo-hooks",
       algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
       algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
@@ -44,7 +44,8 @@ const config = {
       '/springcore',
       '/TIL',
       '/datastructure',
-      '/springsecurity'
+      '/springsecurity',
+      '/MIT공개강좌'
     ],
     links: [{ text: '깃헙', link: 'https://github.com/hanbyul9/' }],
     frontline: false,
@@ -64,8 +65,8 @@ const config = {
       name: 'Gatsby Gitbook Starter',
       short_name: 'GitbookStarter',
       start_url: '/',
-      background_color: '#6b37bf',
-      theme_color: '#6b37bf',
+      background_color: '#708090',
+      theme_color: '#708090',
       display: 'standalone',
       crossOrigin: 'use-credentials',
       // icons: [
