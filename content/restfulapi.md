@@ -6,32 +6,35 @@ metaDescription: "Restful API 정리"
 # 그런 REST API로 괜찮은가? 정리
 
 # API
-- 소프트웨어가 다른 소프트웨어로부터 지정된 형식으로 요청, 명령을 받을 수 있는 수단.
-- a way of providing interoperability between computer systems on the Internet.
+- Application Programming Interface
+- 소프트웨어가 다른 소프트웨어로부터 **지정된 형식**으로 요청, 명령을 받을 수 있는 수단.
+- 소스코드 수준에서 정의되는 인터페이스.
+- 코드와 코드끼리 서로 소통할 수 있도록 하는 수단
+- 데이터나 서버를 가지고 있는 사람들이 원하는 대로 디자인 할 수 있다
 
 # Rest api 의 시작
 
-# web (1991)
+### web (1991)
 
-# 어떻게 인터넷에서 정보를 공유할 것인가?
+### 어떻게 인터넷에서 정보를 공유할 것인가?
 - 정보들을 하이퍼텍스트로 연결한다.
 - 표현 형식: HTML
 - 식별자: URI
 - 전송 방법: HTTP
 
-# HTTP/1.0 (1994-1996)
+### HTTP/1.0 (1994-1996)
 로이 필딩 : 어떻게 내가 웹을 망가뜨리지 않고 http를 발전시킬수 있을까?
 
-# REST API
+### REST API
 REST 아키텍쳐 스타일을 따르는 API
 
-# REST
+### REST
 분산 하이퍼미디어 시스템(예: 웹)을 위한 아키텍쳐 스타일
 
-# 아키텍쳐 스타일
+### 아키텍쳐 스타일
 제약조건들의 집합
 
- 이 제약조건들을 모두 따라야 비로소 REST API를 지켰다고 말할 수 있다
+이 제약조건들을 모두 따라야 비로소 REST API를 지켰다고 말할 수 있다
 
 #  REST를 구성하는 스타일
 - client-server
