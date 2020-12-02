@@ -27,7 +27,7 @@ sudo apt install openjdk-11-jdk
 
 # git 설치
 - sudo apt-get git
--
+
 # 크롬 깔기
 # 한글 설정
-#
+

@@ -28,8 +28,8 @@ const config = {
 		//   </li>`,
     links: [{ text: '', link: '' }],
     search: {
-      enabled: true,
-      indexName: "learn-react-apollo-hooks",
+      enabled: false,
+      indexName: "",
       algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
       algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
@@ -65,8 +65,8 @@ const config = {
       name: 'Gatsby Gitbook Starter',
       short_name: 'GitbookStarter',
       start_url: '/',
-      background_color: '#708090',
-      theme_color: '#708090',
+      background_color: '#6b37bf',
+      theme_color: '#6b37bf',
       display: 'standalone',
       crossOrigin: 'use-credentials',
       // icons: [
