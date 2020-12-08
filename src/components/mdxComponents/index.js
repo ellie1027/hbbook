@@ -28,6 +28,9 @@ export default {
   h6: props => (
     <h6 className="heading6" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
   ),
+  h7: props => (
+    <h6 className="heading7" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
+  ),
   p: props => <p className="paragraph" {...props} />,
   pre: props => (
     <StyledPre>

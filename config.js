@@ -1,7 +1,7 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://hb-9.netlify.app/',
+    siteUrl: 'https://hbbook.netlify.app/',
     gaTrackingId: null,
     trailingSlash: false,
   },
@@ -9,7 +9,7 @@ const config = {
     logo: '/src/components/images/favicon.png',
     logoLink: '',
     title: "",
-    githubUrl: 'https://github.com/hanbyul9/',
+    githubUrl:'',
     helpUrl: '',
     tweetText: '',
     // social: `<li>
@@ -47,17 +47,17 @@ const config = {
       '/springsecurity',
       '/MIT공개강좌'
     ],
-    links: [{ text: '깃헙', link: 'https://github.com/hanbyul9/' }],
-    frontline: false,
+    links: [{ text: '깃헙', link: 'https://github.com/hanbyul9/' }, {text: '스터디 블로그', link: "http://34.64.101.68/ynm/"}],
+    frontline: true,
     ignoreIndex: true,
-    title: "",
+    title: "PERSONAL WIKI 🐕 ",
   },
   siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
+    title: 'hbbook | personal wiki',
     description: 'Documentation built with mdx. Powering hasura.io/learn ',
-    ogImage: null,
+    ogImage: '/src/components/images/favicon.png',
     docsLocation: '',
-    favicon: '/src/components/images/favicon.png',
+    favicon: '/src/components/images/favicon.png'
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.

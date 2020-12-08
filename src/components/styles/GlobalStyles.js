@@ -257,7 +257,7 @@ export const baseStyles = injectGlobal`
     padding: 0 !important;
   }
   .navBarDefault {
-    background-color: #001934;
+    background-color: #D87E94;
     border-radius: 0;
     border-top: 0;
     margin-bottom: 0;
@@ -271,7 +271,7 @@ export const baseStyles = injectGlobal`
     z-index: 1;
     padding: 15px;
     position: relative;
-    height: 80px;
+    height: 30px;
   }
   .navBarHeader {
     min-width: 335px;
@@ -450,11 +450,11 @@ export const baseStyles = injectGlobal`
   }
 
   .hideFrontLine .active > a {
-    background-color: #1ed3c6;
+    background-color: #7ED8C2;
     color: #fff !important;
   }
   .firstLevel ul li .collapser svg path {
-    fill: #fff !important;
+    fill: #F4D7DE !important;
   }
   .active .collapser > svg > path {
     fill: #001933 !important;
@@ -470,7 +470,7 @@ export const baseStyles = injectGlobal`
   }
 
   .sideBarUL .item > a {
-    color: #1ED3C6;
+    color: #F4D7DE;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -508,7 +508,7 @@ export const baseStyles = injectGlobal`
     border-color: rgb(230, 236, 241) !important;
     border-style: solid none solid solid;
     border-width: 1px 0px 1px 1px;
-    background-color: #1ed3c6 !important;
+    background-color: #7ED8C2 !important;
     color: #fff;
   }
 
@@ -707,8 +707,16 @@ export const baseStyles = injectGlobal`
     font-size: 14px;
     font-weight: 300;
     line-height: 1.5;
-    margin-bottom: 16px;
-    margin-top: 32px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .heading7 {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    margin-top: 10px;
   }
 
   .paragraph {
