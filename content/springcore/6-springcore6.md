@@ -1,5 +1,5 @@
 ---
-title: "스프링코어 | Resource / Validation"
+title: "Resource / Validation"
 metaTitle: "스프링코어 | Resource / Validation"
 metaDescription: "스프링코어 | 섹션2 | Resource / Validation"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "스프링코어 | summary"
+title: "SUMMARY"
 metaTitle: "스프링코어 | SUMMARY"
 metaDescription: "스프링코어 SUMMARY"
 ---

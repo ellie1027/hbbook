@@ -1,5 +1,5 @@
 ---
-title: "스프링코어 | 스프링 IoC 컨테이너 #3"
+title: "스프링 IoC 컨테이너 #3"
 metaTitle: "스프링코어 | 섹션1 | 스프링 IoC 컨테이너와 빈"
 metaDescription: "스프링코어 | 섹션1 | 스프링 IoC 컨테이너와 빈"
 ---
