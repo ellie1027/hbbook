@@ -2,7 +2,7 @@
 title: "Introduction"
 metaTitle: "MIT 공개강좌 | Introduction to Computer Science and Programming"
 metaDescription: "MIT 공개강좌 | Introduction to Computer Science and Programming"
-------------------------------------------------------------------------------
+----
 
 
 # What is computation?
