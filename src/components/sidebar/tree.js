@@ -26,7 +26,7 @@ const calculateTreeData = edges => {
 
       let { items: prevItems } = accu;
 
-      console.log(prevItems);
+      //console.log(prevItems);
 
       const slicedParts =
         config.gatsby && config.gatsby.trailingSlash ? parts.slice(1, -2) : parts.slice(1, -1);

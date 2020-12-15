@@ -50,7 +50,7 @@ const SidebarLayout = ({ location }) => (
               }
             }
           }
-          console.log(innerItems);
+          //console.log(innerItems);
           if (innerItems) {
             finalNavItems = innerItems;
           }

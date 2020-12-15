@@ -7,7 +7,7 @@ import config from '../../../config';
 
 // eslint-disable-next-line no-unused-vars
 const ListItem = styled(({ className, active, level, ...props }) => {
-  console.log(props);
+  //console.log(props);
   return (
     <li className={className}>
       <a href={props.to} {...props} target="_blank" rel="noopener noreferrer">
