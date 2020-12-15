@@ -26,7 +26,7 @@ const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
   max-height: 80vh;
   overflow: scroll;
-  z-index: 2;
+  z-index: 1;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   right: 0;
