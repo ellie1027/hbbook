@@ -47,7 +47,7 @@ const config = {
       '/springsecurity',
       '/MIT공개강좌'
     ],
-    links: [{ text: '깃헙', link: 'https://github.com/hanbyul9/' }, {text: '스터디 블로그', link: "http://34.64.101.68/ynm/"}],
+    links: [{ text: '깃헙', link: 'https://github.com/hanbyul9/' }, {text: '스터디 블로그', link: "http://studylog.tk"}],
     frontline: true,
     ignoreIndex: true,
     title: "PERSONAL WIKI 🐕 ",
