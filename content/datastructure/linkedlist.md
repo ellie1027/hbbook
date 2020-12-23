@@ -170,6 +170,24 @@ class LinkedList {
 
 		System.out.println(n.data);
 	}
+
+  void removeDups(){
+	    Node n = header;
+	    //마지막 노드는 next값이 없으므로 반복문을 타지 말아야 하기 때문에
+	    while (n != null && n.next != null) {
+	      Node r = n;
+	      while(r.next != null) {
+	          if(n.data == r.next.data) {
+	              //다음 노드의 데이터가 중복일 경우 현재 노드가 가진 다음 노드의 주소를 다음 노드의 주소를 다다음 노드의 주소로 바꾼다.
+	              r.next = r.next.next;
+            }else{
+	              //중복이 아닐 경우 다음 노드로 간다.
+	              r = r.next;
+            }
+         }
+      }
+  }
+
 }
 
 public class LinkedListNode {
@@ -189,9 +207,18 @@ public class LinkedListNode {
 ```
 
 # 5. 정렬되어 있지 않은 링크드 리스트의 중복되는 값을 제거하시오. 단, 별도의 버퍼를 사용하지 않아야 한다)
-
+(위의 removeDups 메서드 참조)
 
 # 1) 버퍼 사용시
+버퍼 - hashset (key값을 가지고 데이터를 찾는데 1이라는 시간밖에 안 걸린다.)
+space: O(N)
+time: O(N)
+
+# 2) 포인터 사용시
+n이 리스트 길이만큼 돌고, r이 n의 제곱만큼 돈다.
+따라서 시간효율성은 더 들지만 공간효율성이 있는 알고리즘이다.
+space: O(1)
+time: O(N2)
 
 
 
