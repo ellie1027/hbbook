@@ -104,7 +104,7 @@ public class SinglyLinkedList {
 
 # 4. LinkedListNode 클래스의 구현
 
-'#3' 에서 구현한 간단한 단방향 링크드 리스트의 경우, 헤더 값이 더이상 필요없어져서 삭제할때 어떤 오브젝트가 헤더 값을 갖고 있다면 에러가 난다.
+'#3' 에서 구현한 간단한 단방향 링크드 리스트의 경우, 헤더 값이 더이상 필요없어져서 삭제할때, 어떤 오브젝트가 헤더 값을 갖고 있다면 에러가 난다.
 이러한 문제를 해결하기 위하여 노드 클래스를 링크드 리스트라는 클래스로 감싸서 링크드 리스트의 헤더를 '데이터'가 아닌 '링크드 리스트의 시작을 알려주는 용도'로만 쓰도록 저장을 한다.
 그리고 그 안에 노드 클래스를 만든다.
 
@@ -187,7 +187,6 @@ class LinkedList {
          }
       }
   }
-
 }
 
 public class LinkedListNode {
@@ -209,33 +208,115 @@ public class LinkedListNode {
 # 5. 정렬되어 있지 않은 링크드 리스트의 중복되는 값을 제거하시오. 단, 별도의 버퍼를 사용하지 않아야 한다)
 (위의 removeDups 메서드 참조)
 
-# 1) 버퍼 사용시
-버퍼 - hashset (key값을 가지고 데이터를 찾는데 1이라는 시간밖에 안 걸린다.)
-space: O(N)
-time: O(N)
+## 1) 버퍼 사용시
+버퍼 - hashset 이용 (key값을 가지고 데이터를 찾는데 1이라는 시간밖에 안 걸린다.)
+- space: O(N)
+- time: O(N)
 
-# 2) 포인터 사용시
+## 2) 포인터 사용시
 n이 리스트 길이만큼 돌고, r이 n의 제곱만큼 돈다.
-따라서 시간효율성은 더 들지만 공간효율성이 있는 알고리즘이다.
-space: O(1)
-time: O(N2)
+**따라서 시간효율성은 더 들지만 공간효율성이 있는 알고리즘이다.**
+- space: O(1)
+- time: O(N^2^)
 
+# 6. 단방향 링크드 리스트 뒤부터 세기(뒤에서부터 K번째 노드 찾기)
 
+## 1) 전체 노드 갯수 카운트 하여 k번째 노드 찾기
 
+k = 1 일시 전체 리스트 갯수는 4 이므로 4 - 1 = 3이 나온다.
+그런데 리스트 전체 갯수는 0번째 부터 세므로, 3 + 1을 해줘야 K번째 노드를 찾을 수 있다.
 
+## 2) 재귀 호출
 
+첫번째 노드를 가지고 함수를 호출한다. 이 함수는 자기가 받은 노드의 다음 노드를 가지고 자기 자신을 또 호출한다.
+노드가 널이 될때까지 계속 자신을 호출한다. 노드가 널일시, 0을 반환한다. 반환한 값에 1을 더해서 계속 반환한다.
 
+링크드 리스트의 길이를 n으로 볼때 O(N)의 공간을 사용하는 알고리즘이며,
+시간은 최악의 경우 링크드리스트의 끝까지 갔다가 다시 앞까지 와야하므로 O(N)이다.
 
+- space: O(N)
+- time: O(N)
 
+## 3) 포인터
+포인터 두개(p1, p2)를 만들고, k = 3 일때 p2는 첫번째 자리에 두고, k만큼 p1을 보낸다.
+포인터를 둘이 동시에 한 칸씩 이동하는데, 먼저 간 p1이 null을 만나면 뒤에 따라오던 포인터의 값이 k번째가 된다.
 
+이렇게 포인터를 활용한 알고리즘은 O(N)의 시간이 걸리고
+공간은 별도의 버퍼를 사용하지 않으므로 O(1)이 된다.
 
+- space: O(N)
+- time: O(1)
 
+```java
+public class KthToLast {
 
+  //실행
+  public static void main(String[] args) {
+    int k = 1;
+    Node kth = KthToLast(first, k);
+  }
 
+  private static Node KthToLast (Node first,int k){
+    Node n = first;
+    itn total = 1;
 
+    while (n.next != null) {
+      total++;
+      n = n.next;
+    }
 
+    n = first;
+    for (int i = 1; i < total - k + 1; i++) {
+      n = n.next;
+    }
 
+    return n;
+  }
 
+  //방법 2. 재귀 호출
 
+  //참조 값
+  static class Reference {
+    public int count = 0;
+  }
 
+  private static Node KthToLast_2(Node n, int k, Reference r) {
+    //마지막 노드 전까지 갔을 때 return null
+    //카운트는 reference에 저장하고 노드를 리턴하기 때문
+    if(n == null) {
+      return null;
+    }
+
+    //다음노드까지 세면서 k번째 노드를 찾는다
+    Node found = KthToLast_2(n.next, k, r);
+    r.count++;
+    if(r.count == k) {
+      return n;
+    }
+    return found;
+  }
+
+  //방법 3. 포인터
+  public static Node KthToLast_3(Node first, int k) {
+    Node p1 = first;
+    Node p2 = first;
+
+    //p1을 k번째 노드로 이동시킴
+    for(int i = 0; i < k; i++) {
+      //p1이 null일 경우 뒤에서 K번째 함수가 없다는 뜻으로 함수를 종료한다.
+      if(p1 == null) return null;
+      p1 = p1.next;
+    }
+
+    //p1이 마지막 노드로 갈 때까지 p2를 이동시킴
+    while(p1 != null) {
+      p1 = p1.next;
+      p2 = p2.next;
+    }
+
+    return p2;
+
+  }
+}
+```
 
