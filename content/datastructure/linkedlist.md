@@ -320,3 +320,177 @@ public class KthToLast {
 }
 ```
 
+# 7. 단방향 링크드 리스트 중간 노드 삭제
+(단, 당신은 첫번째 노드가 어딨는지 모르고, 오직 삭제할 노드만 갖고 있다.)
+
+삭제할 노드의 뒤의 노드를 삭제할 노드에 복사하고, 뒤의 노드를 지우면 된다.
+
+```java
+public class DelMidNode {
+
+    //실행
+    public static void main(String[] args) {
+      LinkedList ll = new LinkedList();
+      ll.append(1);
+      ll.append(2);
+      ll.append(3);
+      ll.append(2);
+      ll.append(2);
+
+      delMidNode(ll.get(3));
+
+    }
+
+    private static boolean delMidNode(Node delete){
+        if(n == null || n.next == null){
+            return false;
+        }
+
+        //삭제할 노드 다음 노드를 받아와서 복사한다.
+        Node next = delete.next;
+
+        //삭제 노드에 다음 노드의 데이터를 넣어주고
+        delete.data = next.data;
+        //삭제 노드가 다다음 노드의 주소를 가질수 있도록 넣어줌(삭제 노드의 다음 노드 삭제)
+        delete.next = next.next;
+        return true;
+    }
+
+}
+```
+
+# 8. 링크드 리스트 값에 따라 나누기
+링크드 리스트에 있는 노드들을 x값을 기준으로 값이 작은 것들은 왼 쪽, 큰 것들은 오른 쪽, 두 파트로 나누시오.
+(단, x는 오른쪽 파트 어디에 놔도 상관없음)
+
+## 1) 두 줄로 세우기
+
+링크드 리스트의 노드를 하나 씩 이동하면서 x보다 작은 값은 앞줄에 세우고, 큰 값은 뒷줄에 세운다.
+그리고 두줄을 합친다.(앞줄의 끝 노드와 뒷줄의 코드를 연결해준다)
+
+### 포인터 4개 선언
+- 첫줄시작, 끝 : s1, e1,
+- 두번째줄 시작, 끝 : s2, e2
+
+크기 비교 후 줄 세우고 포인터를 옮긴다.
+
+```java
+public class PartitionNode {
+
+	public static void main(String[] args) {
+		LinkedList ll = new LinkedList();
+
+		//데이터 추가
+		ll.append(7);
+		ll.append(2);
+		ll.append(8);
+		ll.append(5);
+		ll.append(3);
+		ll.append(4);
+
+		ll.retrieve();
+
+		Node n = Partition1(ll.get(1), 5);
+		while(n.next != null) {
+			System.out.print(n.data + " -> ");
+			n = n.next;
+		}
+
+	}
+
+	//방법 1
+	private static Node Partition1(Node node, int x) {
+		//두 줄로 만들어서 풀기(앞줄, 뒷줄)
+		Node s1 = null;
+		Node e1 = null;
+		Node s2 = null;
+		Node e2 = null;
+
+		//마지막 노드까지 돔
+		while(node != null) {
+			//해당 노드 다음 노드 저장
+			Node next = node.next;
+			node.next = null;
+
+			//데이터가 기준점보다 작을시 앞으로 보내야 함
+			if(node.data < x) {
+				if(s1 == null) {
+					s1 = node;
+					e1 = s1;
+				}else {
+	        // e1의 다음 주소값으로 n을 갖게 하고
+					e1.next = node;
+	        // e1도 n 노드의 위치로 이동한다(마지막 노드가 되게 함)
+					e1 = node;
+				}
+			}else {
+				if(s2 == null) {
+					s2 = node;
+					e2 = s2;
+				}else {
+					e2.next = node;
+					e2 = node;
+				}
+			}
+			node = next;
+		}
+
+		if(s1 == null) {
+			return s2;
+		}
+
+		e1.next = s2;
+		return s1;
+	}
+
+	//방법 2
+	//head와 tail을 이용하여 나눔
+	private static Node Partition2(Node n, int x) {
+
+		Node h = n;
+		Node t = n;
+
+		while(n != null) {
+		  //n이 바뀔 수 있으므로 다음 노드 저장
+			Node next = n.next;
+
+			//x보다 작은 값이면 헤더 앞으로 가야함
+			if(n.data < x) {
+			  //내 뒤에 헤드를 붙임.(헤드 주소를 가짐)
+				n.next = h;
+				//n이 헤더가 된다.
+				h = n;
+			}else {
+				t.next = n;
+				t = n;
+			}
+
+			//n은 노드의 끝까지 돈다.
+			n = next;
+		}
+
+		//마지막임을 표시하기 위하여 반복문이 끝난  마지막 노드의 next를 비워줌.
+		t.next = null;
+
+		return h;
+	}
+
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
