@@ -1,7 +1,7 @@
 ---
-title: "angular 01 - 설치 및 데이터 바인딩"
-metaTitle: "angular 01 - 설치 및 데이터 바인딩"
-metaDescription: "angular 01 - 설치 및 데이터 바인딩"
+title: "angular fundamentals"
+metaTitle: "angular fundamentals"
+metaDescription: "angular fundamentals"
 ---
 
 # 1. 설치
@@ -27,59 +27,70 @@ ng serve --open
 
 서버를 실행한다.
 
+# 2. 데이터바인딩
 
-# 2. angular란 무엇인가?
+크게 3가지로 분류될 수 있다.
+### 2.1 One-way from data source to view target [단방향 데이터소스 -> 뷰]
 
-### 웹 개발의 변화
-AJAX -> SPA(MVC) -> WEB COMPONENT
+```angular2html
+  <!-- interpolation -->
+  {{ expression }}
+  <div> {{ getTitle() }}</div>
 
-### 일반적인 웹 페이지 로딩 절차
-- 사용자가 브라우저에 url을 입력
-- 브라우저가 해당 url의 웹페이지를 서버에 요청
-- 서버는 서버사이드 기술을 이용하여 자바의 객체와 jsp로 작성된 템플릿을 만듬
-- 브라우저가 인식하는 html페이지를 만들어 응답을 보냄
+  <!--  property binding  -->
+  <input #myinput [property]="expression">
 
-- 각 페이지별로 전달되어야 할 데이터들은, 예를 들어 사용자 정보 같은 데이터들 서버쪽 세션에 저장되어 있다가 은
-다음 페이지 요청이 올때 사용자 세션에서 사용자 데이터 정보를 읽어서 jsp단에서 html로 만든다.
+- 값이 동적으로 변하므로 실제 DOM에는 값이 지정되지 않음.
 
-### ajax 웹 페이지 로딩 절차
-- 서버부터 웹 페이지를 받아옴.
-- 버튼을 클릭하는 것과 같은 사용자가 특정 행위를 하게 되면, dom api를 이용하여 엘리먼트를 추가하거나 수정하는 행위들을 자바 스크립트로 함.
-- 데이터가 필요할시, 자바 스크립트로 http request를 만들어서 백그라운드로 서버에게 비동기 요청을 보냄
-- 이 요청에 대한 응답(json 형태)을 받으면 자바 스크립트로 dom 처리를 할 수 있음
-- 화면이 바뀔때마다 서버에 요청하는 것이 아니라 자바 스크립트로 dom을 만들고 수정하기 때문에 브라우저의 메모리에 올라가있는 데이터를 이용하여 이러한 처리를 한다.
-- 서버에 요청을 하지 않고도 동적으로 화면을 변경할 수 있다. 서버쪽의 부담도 줄고 서버에 요청횟수도 줄어들기 때문에 빠른 웹 어플리케이션 개발이 가능해졌다.
-- 하지만 규모가 큰 어플리케이션에서는 재사용이 매우 어렵고 코드가 스파게티처럼 꼬인다는 단점이 있음. 따라서 '코드의 구조화'가 필요했음.
+  <!--  attribute binding-->
+  <input #myinput2 [attr.value]="myValue">
 
-### 단일 페이지 웹 애플리케이션(SPA)
-- 라우팅; url path에 따라서 자바스크립트로 동적인 화면을 그림.
-- mvc 프레임워크 등장.
-- angular.js; 구글이 만든 단일 페이지 웹 어플리케이션 개발을 위한 자바스크립트 프레임워크.
+  <!-- class binding -->
+  <div [class.visible]="isVisible()">Hello</div>
 
-### 컴포넌트 구성
-Web COMPONENT
-- 커스텀 엘리먼츠
-- 쉐도우 돔
-- html import
-- html 템플릿
-로 구성된 웹 컴포넌트라는 개념이 나오기 시작함.
+  <!-- ngClass Directive를 이용한 것과 같은 효과 -->
+  <div [ngClass]="{'visible': isVisible()}">Hello</div>
 
-- 웹 플랫폼 자체에서 재사용 가능한 단위인 컴포넌트라는 단위로 웹 어플리케이션 개발이 가능하게 됨.
-- 사용자가 엘리멘트를 정의할 수 있고, 그 안의 기능을 구현하는 것.
-  - 사용자가 정의한 엘리먼트를 하나의 재사용하는 단위, 그리고 하나의 기능으로 보는 것이다.
+- 식(expression)에 true/false에 따라 지정한 클래스가 삽입될 지 결정.
 
-### Augular2
-- 구글이 만든 웹 어플리케이션 플랫폼으로서 다양한 플랫폼에서 동작할 수 있게 하는 개발 툴과 기능들을 제공
+  <!-- style binding-->
+  <!-- Data 소스의 Field로 인식하지 않고 문자열로 인식하기 위해 ''로 감싸야 한다. -->
+  <div [style.backgroud-color]="'cyan'">...</div>
 
-[이미지]
+```
 
-- 회색 : core부분
+### 2.2 One-way from view target to data source [단방향 뷰 -> 데이터소스]
 
+```angular2html
+<button (onClick)="showMyAction()">Click me!</button>
+```
 
-### Augular CLI
--
+###2.3 Two Way [양방향]
 
+- 프로퍼티 바인딩 + 이벤트 바인딩
 
+- 양방향으로 데이터를 바인딩 하기 위해서는 FormsModule이 필요하다.
+```typescript
+import { FormsModule } from '@angular/forms'
+
+@NgModule({
+  ...
+  imports: [ FormsModule, ... ]
+})
+```
+```angular2html
+<input  [{ngModel}]="name">
+```
+
+##### Directives
+지시자.
+
+###### Structural Directives
+DOM Tree를 동적으로 조작하여 화면의 구조를 변경할 때 사용.
+
+```angular2html
+
+```
 
 
 ### Augular Module
