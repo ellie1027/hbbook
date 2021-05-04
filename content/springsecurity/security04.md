@@ -102,12 +102,12 @@ public class ProviderManager implements AuthenticationManager, MessageSourceAwar
 
 ProviderManager는 AuthenticationProvider 리스트를 순회하며 인증을 위임할 프로바이더를 찾는다.
 
-**AuthenticationProvider는 그 인증 객체를 이용하여 DB에서 가져온 사용자의 정보와 사용자가 입력한 정보를 비교한. 그러니까 실질적인 인증은 AuthenticationProvider에서 이루어지는 셈이다.**
+**AuthenticationProvider는 그 인증 객체를 이용하여 DB에서 가져온 사용자의 정보와 사용자가 입력한 정보를 비교한다. 그러니까 실질적인 인증은 AuthenticationProvider에서 이루어지는 셈이다.**
 
 AuthenticationProvider 인터페이스의 구현체는 개발자 스스로 구현해도 되고
 (AbstractUserDetailsAuthenticationProvider.class 상속받아서), 스프링 시큐리티에서 기본적으로 제공해주는 클래스를 사용해도 된다.
 
-✨ 혹시 커스텀 AuthenticationProvider을 사용할 경우엔, 스프링 시큐리티 설정파일에서 configure(AuthenticationManagerBuilder auth) 메소드를 상속받아서 등록하면 된다.
+✨ **혹시 커스텀 AuthenticationProvider을 사용할 경우엔, 스프링 시큐리티 설정파일에서 configure(AuthenticationManagerBuilder auth) 메소드를 상속받아서 등록하면 된다.**
 
 AuthenticationManagerBuilder 클래스의 authenticationProvider 메소드는 authenticationProvider(ArrayList)에 add를 해준다.
 ProviderManage가 순회하는 AuthenticationProvider 리스트에 내가 만든 프로바이더를 넣어주는 것이다.

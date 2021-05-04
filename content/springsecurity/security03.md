@@ -34,7 +34,7 @@ metaDescription: "Spring Security | java configuration"
 
 ## 3.1 Basic auth
 
-Basic authentication 은 'HTTP REQUEST' 를 이용한 기본적인 인증 매커니즘이다.
+Basic authentication 은 'http request' 를 이용한 기본적인 인증 매커니즘이다.
 사용자가 입력한 username, password를 Base64로 암호화하여 http request 에 넣은 후 서버에 전달하여 인증한다.
 
 그런데 Basic authentication 은 사용자의 모든 리퀘스트 하나하나 마다 전부 유저네임과 패스워드를 실어서 보내고 서버는 그 리퀘스트를 일일히 확인한다.
